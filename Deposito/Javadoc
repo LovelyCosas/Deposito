@@ -1,0 +1,96 @@
+package cuentas;
+
+/**
+ * Clase de la cuenta bancaria
+ * 
+ * @author MariolaMartinez
+ */
+public class CCuenta {
+	/** atributos de la clase */
+
+    private String nombre;
+    private String cuenta;
+    private double saldo;
+    private double tipoInterés;
+    /** constructor de la clase cuenta */
+    public CCuenta()
+    {
+    }
+    /** constructor de la clase cuenta con los parametros */
+    public CCuenta(String nom, String cue, double sal, double tipo)
+    {
+        nombre =nom;
+        cuenta=cue;
+        saldo=sal;
+    }
+
+    public double estado()    /** devuelve el saldo de la cuenta @return saldo */
+    {
+        return saldo;
+    }
+    /** para ingresar una cantidad 
+     * 
+     * @param cantidad ---cantidad a ingresar de la cuenta
+     * @throws Exception si la cantidad es negativa */
+    public void ingresar(double cantidad) throws Exception
+    {
+        if (cantidad<0)
+            throw new Exception("No se puede ingresar una cantidad negativa");
+        saldo = saldo + cantidad;
+    }
+    /** para retirar una cantidad
+     * @param cantidad ---cantidad a retirar d la cuenta
+     * @throws Exception si la cantidad es negativa o saldo insuficiente */
+    public void retirar(double cantidad) throws Exception
+    {
+        if (cantidad <= 0)
+            throw new Exception ("No se puede retirar una cantidad negativa");
+        if (estado()< cantidad)
+            throw new Exception ("No se hay suficiente saldo");
+        saldo = saldo - cantidad;
+    }
+    /** nombre del titular actual
+     * 
+     *  @return nombre*/
+	public String getNombre() {
+		return nombre;
+	}
+	/** nuevo nombre del titular
+	 * @param nombre */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	/** obgtengo el numero de cuenta actual
+	 * @return cuenta  */
+	public String getCuenta() {
+		return cuenta;
+	}
+	/** nuevo numero de cuenta
+	 * @param cuenta*/
+	public void setCuenta(String cuenta) {
+		this.cuenta = cuenta;
+	}
+	/**@return saldo actual de la cuenta*/
+	public double getSaldo() {
+		return saldo;
+	}
+	/** nuevo saldo 
+	 * @param saldo*/
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+	/**@return tipo de interes
+	 * devuelve el tipo de interes actual*/
+	public double getTipoInterés() {
+		return tipoInterés;
+	}
+	/**@param  tipo de interes
+	 * dice cual es el nuevo tipo de interes */
+	public void setTipoInterés(double tipoInterés) {
+		this.tipoInterés = tipoInterés;
+	}
+    
+    
+    
+    
+}
